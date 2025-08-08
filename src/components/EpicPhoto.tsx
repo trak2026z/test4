@@ -16,7 +16,7 @@ export const EpicPhoto: React.FC<{}> = () => {
         if (!data.length) throw new Error("No data");
         const latest = data[0];
         const dateObj = new Date(latest.date);
-        {onst yyyy = dateObj.getUTCFullYear();
+        const yyyy = dateObj.getUTCFullYear();
         const mm = String(dateObj.getUTCMonth() + 1).padStart(2, "00");
         const dd = String(dateObj.getUTCDate()).padStart(2, "00");
         const imageUrl = "https://epic.gsfc.nasa.gov/archive/natural/${yyyy}/${mm}/${dd}/png/${latest.image}.png";
