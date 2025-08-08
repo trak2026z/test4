@@ -10,16 +10,16 @@ export const EpicPhoto: React.FC<{}> = () => {
   useEffect(() => {
     const fetchPhoto = async () => {
       try {
-        const res = await fetch("https://epic.gsfc.gasa.gov/api/natural");
+        const res = await fetch("https://epic.gsfc.nasa.gov/api/natural");
         if (!res.ok) throw new Error("API error");
         const data = await res.json();
         if (!data.length) throw new Error("No data");
         const latest = data[0];
         const dateObj = new Date(latest.date);
-        const yyyy = dateObj.getUTCFullYear();
+        {onst yyyy = dateObj.getUTCFullYear();
         const mm = String(dateObj.getUTCMonth() + 1).padStart(2, "00");
         const dd = String(dateObj.getUTCDate()).padStart(2, "00");
-        const imageUrl = "https://epic.gsfc.gasa.gov/archive/natural/${yyyy}/${mm}/${dd}/png/${latest.image}.png";
+        const imageUrl = "https://epic.gsfc.nasa.gov/archive/natural/${yyyy}/${mm}/${dd}/png/${latest.image}.png";
         setPhoto({ image: imageUrl, date: latest.date });
       } catch (e) {
         console.error(e);
